@@ -32,7 +32,7 @@ class App(QMainWindow):
         self.textbox.resize(280,25)
 
         self.tblabel = QLabel("Select voice", self)
-        self.tblabel.move(20,85)
+        self.tblabel.move(20,80)
         self.tblabel.resize(200,25)
 
         # Select voice
@@ -43,10 +43,12 @@ class App(QMainWindow):
         self.voices.addItem("Male 01")
         self.voices.addItem("Male 02")
         self.voices.move(100,80)
+        self.voices.resize(120, 25)
 
         # Create a button in the window
         self.button = QPushButton('Generate audio', self)
         self.button.move(20,115)
+        self.button.resize(110,30)
 
         # connect button to function on_click
         self.button.clicked.connect(self.on_click)
