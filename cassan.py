@@ -67,16 +67,18 @@ class App(QMainWindow):
             self.api_req = {'text_speaker': 'en_us_001',
                     'req_text': self.voice_input}
 
-            if self.voices.currentIndex == 0:
+            self.idx = self.voices.currentIndex()
+
+            if self.idx == 0:
                 pass
-            elif self.voices.currentIndex == 1:
-                self.api_req['text_speaker'] == "en_us_006"
-            elif self.voices.currentIndex == 2:
-                self.api_req['text_speaker'] == "en_us_010"
-            elif self.voices.currentIndex == 3:
-                self.api_req['text_speaker'] == "en_us_007"
-            elif self.voices.currentIndex == 4:
-                self.api_req['text_speaker'] == "en_us_009"
+            elif self.idx == 1:
+                self.api_req['text_speaker'] = "en_us_006"
+            elif self.idx == 2:
+                self.api_req['text_speaker'] = "en_us_010"
+            elif self.idx == 3:
+                self.api_req['text_speaker'] = "en_us_007"
+            elif self.idx == 4:
+                self.api_req['text_speaker'] = "en_us_009"
             self.ret = requests.post(TIKTOK_API_BASE, data=self.api_req)
             self.response = self.ret.json()
             with open('output.mp3', 'wb') as fd:
